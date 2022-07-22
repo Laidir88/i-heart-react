@@ -1,3 +1,4 @@
+import { Component } from "react";
 import HeartSVG from "./HeartSVG";
 
 const colors = [
@@ -9,16 +10,19 @@ const colors = [
   "#fffcf2",
 ];
 
-const CandyColoredHeart = (props) => {
-  const randomCol = colors[Math.floor(Math.random() * colors.length)];
-  return (
-    <div className="heart">
-      <div className="heart-img">
-        <HeartSVG col={randomCol} />
-        <p className="heart-message">{props.msg}</p>
+class CandyColoredHeart extends Component {
+  render() {
+    const randomCol = colors[Math.floor(Math.random() * colors.length)];
+
+    return (
+      <div className="heart">
+        <div className="heart-img">
+          <HeartSVG col={randomCol} />
+          <p className="heart-message">{this.props.msg}</p>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default CandyColoredHeart;
